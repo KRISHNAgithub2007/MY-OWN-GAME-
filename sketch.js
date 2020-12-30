@@ -1,6 +1,6 @@
 var mario;
 var dragon;
-var gamestate="play";
+var gamestate="instructions";
 var playbut;
 var hammer;
 var ran1;
