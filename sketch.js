@@ -37,7 +37,7 @@ function preload(){
 
 function setup(){
 
-  createCanvas(windowWidth,windowHeight);
+  createCanvas(1600,800);
 
   fireballgroup = new Group();
   obsgroup = new Group();
