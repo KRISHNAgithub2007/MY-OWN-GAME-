@@ -195,6 +195,9 @@ function draw(){
         spawnfireball(); 
         spawncoins();
         spawnobs(); 
+        
+        camera.position.x=mario.x;
+        camera.position.y=mario.y;
 
         fill("yellow");
         textSize(25);
