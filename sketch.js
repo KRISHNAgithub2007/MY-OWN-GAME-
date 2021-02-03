@@ -17,7 +17,7 @@ function preload(){
     xladderimg = loadImage("IMAGES/ground.png");
     yladderimg = loadImage("IMAGES/ladders.png");
 
-    dragonfire = loadAnimation("IMAGES/dragon1.png","IMAGES/dragon1.png","IMAGES/dragon2.jpg","IMAGES/dragon2.jpg","IMAGES/dragon3.png","IMAGES/dragon3.png");
+    dragonfire = loadAnimation("IMAGES/dragon1.png","IMAGES/dragon2.jpg","IMAGES/dragon3.png");
     
     fireballimg = loadImage("IMAGES/fireball.png");
 
