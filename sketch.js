@@ -133,17 +133,17 @@ function setup(){
 
 // creating y ladders
 
-  yladder1 = createSprite(840,414,10,10);
+  yladder1 = createSprite(840,550,10,10);
   yladder1.addImage(yladderimg);
   yladder1.scale = 0.3;
   yladdergroup.add(yladder1);
 
-  yladder2 = createSprite(20,410,10,10);
+  yladder2 = createSprite(20,550,10,10);
   yladder2.addImage(yladderimg);
   yladder2.scale = 0.3;
   yladdergroup.add(yladder2);
 
-  yladder3 = createSprite(460,565,10,10);
+  yladder3 = createSprite(460,700,10,10);
   yladder3.addImage(yladderimg);
   yladder3.scale = 0.3;
   yladdergroup.add(yladder3);
@@ -156,8 +156,9 @@ function setup(){
   mario = createSprite(50,700);
   mario.addImage(marioimg);
   mario.scale = 0.3;
+  mario.debug=true;
 
-  hammer = createSprite(2000,260,50,50);
+  hammer = createSprite(2000,400,50,50);
   hammer.addImage(hammerimg);
   hammer.scale = 0.4;
 
@@ -204,14 +205,20 @@ function draw(){
         text("HEALTH : " + life, displayWidth-290, 90);
         //console.log(hammerstate);
 
-        
-        if(mario.isTouching(obsgroup) && hammerstate != "hit"){
+        if(mario.x<0){
+            mario.x=1605
+        }
+
+        if(mario.x>1600){
+            mario.x=0
+        }
+        if(mario.isTouching(obsgroup) && hammerstate !="hit"){
             life = life-1;
             obsgroup.destroyEach();
             console.log(hammerstate);
         }
 
-        if(mario.isTouching(obsgroup) && hammerstate == "hit"){
+        if(mario.isTouching(obsgroup) && hammerstate === "hit"){
             obsgroup.destroyEach();
         }
 
@@ -232,7 +239,9 @@ function draw(){
         if(keyWentDown("space") && hammerstate == "hold"){
             mario.addImage(mariohammerhitted);
             hammerstate = "hit";
-            mario.scale = 0.07;
+            mario.scale = 0.5;
+            mario.setCollider("rectangle",0,0,100,100)
+            
            
         }
 
@@ -240,6 +249,7 @@ function draw(){
             mario.addImage(mariohammer);
             hammerstate = "hold";
             mario.scale = 0.5;
+
         }
 
         if(mario.isTouching(hammer) && hammerstate == "none"){
@@ -271,7 +281,7 @@ function draw(){
 
         if(frameCount== 300){
             hammer.x = 300;
-            hammer.y = 290;
+            hammer.y = 400;
 
         }
         //console.log(scoreboard);
@@ -350,7 +360,7 @@ function spawncoins(){
 }
 
 function spawnobs(){
-    if(frameCount % ran1 == 0){
+    if(frameCount % ran1 == 10){
         var obstacle = createSprite(1650,300,20,20);
         obstacle.addImage(obsimg);
         obstacle.scale = 0.05;
