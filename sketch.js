@@ -239,7 +239,7 @@ function draw(){
         if(keyWentDown("space") && hammerstate == "hold"){
             mario.addImage(mariohammerhitted);
             hammerstate = "hit";
-            mario.scale = 0.5;
+            mario.scale = 0.05;
             mario.setCollider("rectangle",0,0,100,100)
             
            
